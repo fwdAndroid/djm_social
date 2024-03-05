@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "537787136620",
+    "project_id": "djmsocial-dc010",
+    "storage_bucket": "djmsocial-dc010.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:537787136620:android:3ce95f8657d2c02e50b649",
+        "android_client_info": {
+          "package_name": "com.example.djm_social"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtVZtfu9Xrabt7o8RWitqJm1ZT-8SccSg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
