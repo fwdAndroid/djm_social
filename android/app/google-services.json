@@ -1,26 +1,36 @@
 {
   "project_info": {
-    "project_number": "537787136620",
-    "project_id": "djmsocial-dc010",
-    "storage_bucket": "djmsocial-dc010.appspot.com"
+    "project_number": "455149892348",
+    "project_id": "djmsocial-55df4",
+    "storage_bucket": "djmsocial-55df4.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:537787136620:android:3ce95f8657d2c02e50b649",
+        "mobilesdk_app_id": "1:455149892348:android:e6fb21f9a44f4c66bf1d79",
         "android_client_info": {
           "package_name": "com.example.djm_social"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "455149892348-6t5nqri9nblh78g5q23nekkcadv67i9v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyDtVZtfu9Xrabt7o8RWitqJm1ZT-8SccSg"
+          "current_key": "AIzaSyDZ1FwdgqwS7NjTs9WmHmfoepPWDElgIK8"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "455149892348-6t5nqri9nblh78g5q23nekkcadv67i9v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

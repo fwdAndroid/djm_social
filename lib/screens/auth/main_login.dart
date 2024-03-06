@@ -1,5 +1,9 @@
 import 'package:djm_social/screens/auth/otp/continue_phone.dart';
+import 'package:djm_social/screens/profile/profile_screen.dart';
+import 'package:djm_social/screens/status/status.dart';
+import 'package:djm_social/services/auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class MainLogin extends StatefulWidget {
   const MainLogin({super.key});
@@ -26,12 +30,22 @@ class _MainLoginState extends State<MainLogin> {
             const SizedBox(
               height: 20,
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Image.asset(
-                "assets/goog.png",
-                width: 357,
-                height: 50,
+            GestureDetector(
+              onTap: () async {
+                await AuthMethods().signInWithGoogle().then((value) => {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (builder) => CheckStatus()))
+                    });
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset(
+                  "assets/goog.png",
+                  width: 357,
+                  height: 50,
+                ),
               ),
             ),
             const SizedBox(

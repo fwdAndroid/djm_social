@@ -38,6 +38,8 @@ dependencies:
     sdk: flutter
   form_field_validator: ^1.1.0
   google_fonts: ^6.2.0
+  google_sign_in: ^6.2.1
+  image_picker: ^1.0.7
   pin_code_fields: ^8.0.1
   uuid: ^4.3.3
 

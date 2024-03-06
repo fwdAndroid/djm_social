@@ -50,19 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDtVZtfu9Xrabt7o8RWitqJm1ZT-8SccSg',
-    appId: '1:537787136620:android:3ce95f8657d2c02e50b649',
-    messagingSenderId: '537787136620',
-    projectId: 'djmsocial-dc010',
-    storageBucket: 'djmsocial-dc010.appspot.com',
+    apiKey: 'AIzaSyDZ1FwdgqwS7NjTs9WmHmfoepPWDElgIK8',
+    appId: '1:455149892348:android:e6fb21f9a44f4c66bf1d79',
+    messagingSenderId: '455149892348',
+    projectId: 'djmsocial-55df4',
+    storageBucket: 'djmsocial-55df4.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDaSPXXXJSkrPTwFebUPcWTSBm2M1W5aVg',
-    appId: '1:537787136620:ios:983dad2a0b97b1af50b649',
-    messagingSenderId: '537787136620',
-    projectId: 'djmsocial-dc010',
-    storageBucket: 'djmsocial-dc010.appspot.com',
+    apiKey: 'AIzaSyAgMzTfNxQbWv5ja2YOJIn7v7WptugB3CA',
+    appId: '1:455149892348:ios:e7002f6594a97990bf1d79',
+    messagingSenderId: '455149892348',
+    projectId: 'djmsocial-55df4',
+    storageBucket: 'djmsocial-55df4.appspot.com',
+    iosClientId: '455149892348-pm28cq9vbt5r14h1fb0147u245uquhfb.apps.googleusercontent.com',
     iosBundleId: 'com.example.djmSocial',
   );
 }

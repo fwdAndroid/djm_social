@@ -1,5 +1,7 @@
 import 'package:djm_social/screens/main_dashboard.dart';
+import 'package:djm_social/screens/status/status.dart';
 import 'package:djm_social/utils/color.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
@@ -71,7 +73,17 @@ class _VerifyPhoneState extends State<VerifyPhone> {
                   fontWeight: FontWeight.bold,
                 ),
                 onCompleted: (pin) async {
-                  try {} catch (e) {
+                  try {
+                    await FirebaseAuth.instance
+                        .signInWithCredential(PhoneAuthProvider.credential(
+                            verificationId: verificationCode!, smsCode: pin))
+                        .then((value) {
+                      if (value.user != null) {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (ctx) => CheckStatus()));
+                      }
+                    });
+                  } catch (e) {
                     FocusScope.of(context).unfocus();
                     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                       content: Text("Invalid Code"),
@@ -105,10 +117,40 @@ class _VerifyPhoneState extends State<VerifyPhone> {
     );
   }
 
-  void verificationPhone() async {}
-
-  // void addPhone() async {
-  //   await DatabaseMethods().phone();
-  //   // .then((value) => Customdialog.closeDialog(context));
-  // }
+  void verificationPhone() async {
+    await FirebaseAuth.instance.verifyPhoneNumber(
+        phoneNumber: "${widget.codeDigits + widget.phone}",
+        verificationCompleted: (PhoneAuthCredential credential) async {
+          await FirebaseAuth.instance
+              .signInWithCredential(credential)
+              .then((value) {
+            if (value.user != null) {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (builder) => CheckStatus(),
+                ),
+              );
+              // Customdialog.closeDialog(context);
+            } else {}
+          });
+        },
+        verificationFailed: (FirebaseException e) {
+          FocusScope.of(context).unfocus();
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(e.message.toString()),
+            duration: const Duration(seconds: 12),
+          ));
+        },
+        codeSent: (String VID, int? resentToken) {
+          setState(() {
+            verificationCode = VID;
+          });
+        },
+        codeAutoRetrievalTimeout: (String VID) {
+          setState(() {
+            verificationCode = VID;
+          });
+        },
+        timeout: const Duration(seconds: 50));
+  }
 }
