@@ -41,9 +41,9 @@ class _ContactPageState extends State<ContactPage> {
         child: StreamBuilder(
           stream: FirebaseFirestore.instance
               .collection("chats")
+              // .where("friendship", isNotEqualTo: "unfriend")
               .where("userId",
                   isEqualTo: FirebaseAuth.instance.currentUser!.uid)
-              .where("friendship", isNotEqualTo: "unfriend")
               .snapshots(),
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
@@ -87,12 +87,13 @@ class _ContactPageState extends State<ContactPage> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (builder) => FriendDetail(
+                                            friendUUid: data['uuid'],
                                             friendId: data['friendId'],
                                             friendName: data['friendName'],
                                             friendPhoto: data['friendPhoto'],
                                           )));
                             },
-                            child: Text("Chat Now"))),
+                            child: Text("View Profile"))),
                   ),
                 );
               },
