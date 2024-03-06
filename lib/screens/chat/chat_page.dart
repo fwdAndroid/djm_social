@@ -2,7 +2,20 @@ import 'package:djm_social/utils/color.dart';
 import 'package:flutter/material.dart';
 
 class ChatPage extends StatefulWidget {
-  const ChatPage({super.key});
+  final userId;
+  final userName;
+  final friendId;
+  final friendName;
+  final friendPhoto;
+  final userPhoto;
+  const ChatPage(
+      {super.key,
+      required this.userPhoto,
+      required this.friendPhoto,
+      required this.friendId,
+      required this.friendName,
+      required this.userId,
+      required this.userName});
 
   @override
   State<ChatPage> createState() => _ChatPageState();
