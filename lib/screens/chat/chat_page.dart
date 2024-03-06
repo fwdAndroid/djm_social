@@ -43,6 +43,21 @@ class _ChatPageState extends State<ChatPage> {
   String? imageLink, fileLink;
   firebase_storage.UploadTask? uploadTask;
   @override
+  void initState() {
+    // TODO: implement initState
+    if (FirebaseAuth.instance.currentUser!.uid.hashCode <=
+        widget.friendId.hashCode) {
+      groupChatId =
+          "${FirebaseAuth.instance.currentUser!.uid}-${widget.friendId}";
+    } else {
+      groupChatId =
+          "${widget.friendId}-${FirebaseAuth.instance.currentUser!.uid}";
+    }
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

@@ -41,16 +41,11 @@ class _ContactPageState extends State<ContactPage> {
         child: StreamBuilder(
           stream: FirebaseFirestore.instance
               .collection("chats")
-              // .where("friendship", isNotEqualTo: "unfriend")
               .where("userId",
                   isEqualTo: FirebaseAuth.instance.currentUser!.uid)
+              // .where("friendship", isNotEqualTo: "unfriend")
               .snapshots(),
           builder: (context, snapshot) {
-            if (!snapshot.hasData) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
             if (snapshot.data!.docs.isEmpty) {
               return const Center(
                 child: Text(

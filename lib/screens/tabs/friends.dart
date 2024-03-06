@@ -29,7 +29,7 @@ class _FriendsState extends State<Friends> {
               .collection("chats")
               .where("userId",
                   isEqualTo: FirebaseAuth.instance.currentUser!.uid)
-              .where("friendship", isNotEqualTo: "unfriend")
+              // .where("friendship", isEqualTo: "unfriend")
               .snapshots(),
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
